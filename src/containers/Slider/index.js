@@ -15,7 +15,6 @@ const Slider = () => {
       setIndex(index < byDateDesc.length - 1 ? index + 1 : 0);
     }, 5000);
   };
-  console.log(byDateDesc);
   useEffect(() => {
     nextCard();
   });
@@ -23,9 +22,8 @@ const Slider = () => {
   return (
     <div className="SlideCardList">
       {byDateDesc?.map((event, idx) => (
-        <>
+        <div key={event.title}>
           <div
-            key={event.title}
             className={`SlideCard SlideCard--${
               index === idx ? "display" : "hide"
             }`}
@@ -51,7 +49,7 @@ const Slider = () => {
               ))}
             </div>
           </div>
-        </>
+        </div>
       ))}
     </div>
   );
